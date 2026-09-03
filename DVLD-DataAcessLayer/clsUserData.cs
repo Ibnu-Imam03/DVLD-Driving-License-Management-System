@@ -151,5 +151,38 @@ namespace DVLD_DataAcessLayer
             return Users;
 
         }
+
+        public static int AddNewUser(int PersonID, string UserName, string Password,  bool IsActive)
+        {
+            int UserID = -1;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "INSERT INTO Users  (PersonID,UserName,Password,IsActive) Values " +
+                "(@PersonID,@UserName,@Password,@IsActive) SELECT SCOPE_IDENTITY()";
+
+            SqlCommand command = new SqlCommand (query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@UserName", UserName);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            try
+            {
+                connection.Open();
+
+                UserID = command.ExecuteNonQuery();
+
+               
+            }catch (Exception es)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return UserID;
+        }
+        
+        
     }
 }

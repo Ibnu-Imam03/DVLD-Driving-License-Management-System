@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using DVLD_DataAcessLayer;
@@ -65,7 +66,13 @@ namespace DVLD_BusinessLayer
         }
 
        
+        private  bool _AddNewUser()
+        {
+            this.UserID = clsUserData.AddNewUser(this.PersonID, this.UserName, this.Password, this.IsActive);
+            return this.UserID != -1;
 
+        }
+        
         private  void _UpdateUserInfo()
         {
             clsUserData.UpdateUserInfo(UserID, UserName, Password, IsActive);
@@ -77,7 +84,15 @@ namespace DVLD_BusinessLayer
             {
                 case enMode.AddNew:
                     {
-                        return false;
+                        if (_AddNewUser())
+                        {
+                            return true;
+                            _Mode = enMode.Update;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 case enMode.Update:
                     {
