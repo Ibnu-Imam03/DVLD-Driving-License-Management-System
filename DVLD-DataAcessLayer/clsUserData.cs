@@ -68,7 +68,7 @@ namespace DVLD_DataAcessLayer
 
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
-                    Password = (string)reader["Password"];
+                    Password = (string)reader["Password"]; 
                     IsActive = (bool)reader["IsActive"];
                 }
                 else
