@@ -105,6 +105,8 @@ namespace DVLD.User
             {
                 cbIsActiveFilter.Visible = false;
                 txtFilter.Visible = false;
+                dgvUserList.DataSource = clsUser.GetAllUsers();
+
             }
             else if (cbUserFilter.SelectedItem.ToString() == "IsActive")
             {
@@ -120,7 +122,33 @@ namespace DVLD.User
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            if ()
+            if (txtFilter.Text == "" || cbUserFilter.SelectedIndex==0)
+            {
+                dgvUserList.DataSource=clsUser.GetAllUsers();
+            }
+            else
+            {
+                dgvUserList.DataSource = clsUser.GetUsers(cbUserFilter.SelectedItem.ToString(), txtFilter.Text);
+            }
+        }
+        private void cbIsActiveFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvUserList.DataSource = clsUser.GetUsers(cbUserFilter.SelectedItem.ToString(),cbIsActiveFilter.SelectedItem.ToString());
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvUserList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user.");
+                return;
+            }
+
+            int personID = Convert.ToInt32(
+                dgvUserList.SelectedRows[0].Cells["PersonID"].Value
+            );
+            frmChangePassword frm = new frmChangePassword(personID);
+            frm.ShowDialog();
         }
     }
 }

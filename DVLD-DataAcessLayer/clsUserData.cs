@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD_DataAcessLayer
 {
@@ -183,55 +184,94 @@ namespace DVLD_DataAcessLayer
             return UserID;
         }
 
-        public static DataTable GetUsers(string colunm , int Row)
+        public static DataTable GetUsers(string filter, string value)
         {
             DataTable users = new DataTable();
-            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = $@"SELECT  Users.UserID, Users.PersonID,
-                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
-                             Users.UserName, Users.IsActive
-                             FROM  Users INNER JOIN
-                                    People ON Users.PersonID = People.PersonID   HAVING Users.{colunm}= {Row}";
-            SqlCommand command = new SqlCommand(query, connection);
-            try
+
+            using (SqlConnection connection =
+                new SqlConnection(PeopeleDatasettings.ConnectionString))
             {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                string query = @"
+            SELECT 
+                Users.UserID,
+                Users.PersonID,
+                FullName = People.FirstName + ' ' +
+                           People.SecondName + ' ' +
+                           ISNULL(People.ThirdName, '') + ' ' +
+                           People.LastName,
+                Users.UserName,
+                Users.IsActive
+            FROM Users
+            INNER JOIN People
+                ON Users.PersonID = People.PersonID
+            WHERE 1 = 1";
+
+                // Build the WHERE condition depending on the selected filter
+                if (filter == "UserID")
                 {
-                    users.Load(reader);
+                    query += " AND Users.UserID = @Value";
                 }
-            }catch (Exception ex)
-            {
-
-            }finally { connection.Close(); }
-
-            return users;
-        }
-        public static DataTable GetUsers(string colunm, string Row)
-        {
-            DataTable users = new DataTable();
-            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = $@"SELECT  Users.UserID, Users.PersonID,
-                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
-                             Users.UserName, Users.IsActive
-                             FROM  Users INNER JOIN
-                                    People ON Users.PersonID = People.PersonID   HAVING Users.{colunm}= {Row}";
-            SqlCommand command = new SqlCommand(query, connection);
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                else if (filter == "UserName")
                 {
-                    users.Load(reader);
+                    query += " AND Users.UserName LIKE @Value";
+                }
+                else if (filter == "PersonID")
+                {
+                    query += " AND Users.PersonID = @Value";
+                }
+                else if (filter == "FullName")
+                {
+                    query += @" AND (
+                People.FirstName + ' ' +
+                People.SecondName + ' ' +
+                ISNULL(People.ThirdName, '') + ' ' +
+                People.LastName
+            ) LIKE @Value";
+                }
+                else if (filter == "IsActive")
+                {
+                    if (value == "Yes")
+                    {
+                        query += " AND Users.IsActive = 1";
+                    }
+                    else if (value == "No")
+                    {
+                        query += " AND Users.IsActive = 0";
+                    }
+                    // All → don't add a condition
+                }
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    if (filter == "UserID" || filter == "PersonID")
+                    {
+                        command.Parameters.AddWithValue("@Value", Convert.ToInt32(value));
+
+                    }
+                    else if (filter == "UserName" || filter == "FullName")
+                    {
+                        command.Parameters.AddWithValue("@Value", value);
+                    }
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            users.Load(reader);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
-            catch (Exception ex)
-            {
-
-            }
-            finally { connection.Close(); }
 
             return users;
         }

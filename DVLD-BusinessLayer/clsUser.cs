@@ -107,6 +107,11 @@ namespace DVLD_BusinessLayer
         {
             return clsUserData.GetAllUser();
         }
+        public static DataTable GetUsers(string filter, string value)
+        {
+            return clsUserData.GetUsers(filter, value);
+        }
+
 
     }
 }
