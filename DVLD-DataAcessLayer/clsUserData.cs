@@ -277,5 +277,30 @@ namespace DVLD_DataAcessLayer
         }
 
 
+        public static bool DeleteUserInfo(int UserID)
+        {
+            int rowAffected = 0;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "DELETE FROM USERS WHERE UserID = @UserID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                connection.Open();
+                rowAffected = command.ExecuteNonQuery();
+
+            }catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowAffected > 0;
+        }
+
     }
 }

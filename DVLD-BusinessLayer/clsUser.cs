@@ -112,6 +112,9 @@ namespace DVLD_BusinessLayer
             return clsUserData.GetUsers(filter, value);
         }
 
-
+        public static bool DeleteUSer(int UserID)
+        {
+            return clsUserData.DeleteUserInfo(UserID);
+        }
     }
 }

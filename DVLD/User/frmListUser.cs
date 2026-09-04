@@ -150,5 +150,27 @@ namespace DVLD.User
             frmChangePassword frm = new frmChangePassword(personID);
             frm.ShowDialog();
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvUserList.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a user.");
+                return;
+            }
+
+            int UserID = Convert.ToInt32(dgvUserList.SelectedRows[0].Cells["UserID"].Value);
+            if (clsUser.DeleteUSer(UserID))
+            {
+                MessageBox.Show("User deleted successfully.","Deleted",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                dgvUserList.DataSource = clsUser.GetAllUsers();
+                lblTotalUser.Text = dgvUserList.Rows.Count.ToString();
+            }
+            else
+            {
+                MessageBox.Show("User was not deleted.","Delete Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }
