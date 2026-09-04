@@ -27,5 +27,10 @@ namespace DVLD.User
         {
             this.Close();
         }
+
+        private void usUserInfo1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

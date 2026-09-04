@@ -25,8 +25,7 @@ namespace DVLD.User
             dgvUserList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUserList.MultiSelect = false;
 
-            dgvUserList.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUserList.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
 
             cbUserFilter.Items.Add("None");
             cbUserFilter.Items.Add("UserID");

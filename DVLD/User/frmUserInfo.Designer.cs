@@ -41,6 +41,7 @@
             this.usUserInfo1.Name = "usUserInfo1";
             this.usUserInfo1.Size = new System.Drawing.Size(715, 451);
             this.usUserInfo1.TabIndex = 0;
+            this.usUserInfo1.Load += new System.EventHandler(this.usUserInfo1_Load);
             // 
             // btnClose
             // 

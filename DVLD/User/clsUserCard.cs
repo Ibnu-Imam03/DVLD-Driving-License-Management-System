@@ -63,6 +63,9 @@ namespace DVLD
             lblISActive.Text = "[???]";
         }
 
-  
+        private void clsPersonCard1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
