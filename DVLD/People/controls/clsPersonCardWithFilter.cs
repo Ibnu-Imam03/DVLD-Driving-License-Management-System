@@ -63,6 +63,7 @@ namespace DVLD.People.controls
         {
             cbFilter.SelectedIndex = 0;
             txtFilter.Text = PersonID.ToString();
+            clsPersonCard1.LoadPersonInfo(PersonID);
 
         }
 

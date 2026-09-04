@@ -31,12 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditUser));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.clsPersonCardWithFilter1 = new DVLD.People.controls.clsPersonCardWithFilter();
+            this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +47,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -82,6 +82,32 @@
             this.tabPage1.Text = "PersonInfo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNext.Location = new System.Drawing.Point(699, 351);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(97, 41);
+            this.btnNext.TabIndex = 1;
+            this.btnNext.Text = "Next";
+            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNext.UseVisualStyleBackColor = false;
+            // 
+            // clsPersonCardWithFilter1
+            // 
+            this.clsPersonCardWithFilter1.BackColor = System.Drawing.Color.SkyBlue;
+            this.clsPersonCardWithFilter1.FilterEnabled = true;
+            this.clsPersonCardWithFilter1.Location = new System.Drawing.Point(-2, 0);
+            this.clsPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4);
+            this.clsPersonCardWithFilter1.Name = "clsPersonCardWithFilter1";
+            this.clsPersonCardWithFilter1.ShowAddPerson = true;
+            this.clsPersonCardWithFilter1.Size = new System.Drawing.Size(872, 421);
+            this.clsPersonCardWithFilter1.TabIndex = 2;
+            // 
             // tpLoginInfo
             // 
             this.tpLoginInfo.BackColor = System.Drawing.Color.SkyBlue;
@@ -104,75 +130,6 @@
             this.tpLoginInfo.Size = new System.Drawing.Size(837, 395);
             this.tpLoginInfo.TabIndex = 1;
             this.tpLoginInfo.Text = "Login Info";
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNext.Location = new System.Drawing.Point(699, 351);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(97, 41);
-            this.btnNext.TabIndex = 1;
-            this.btnNext.Text = "Next";
-            this.btnNext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNext.UseVisualStyleBackColor = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(591, 512);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 37);
-            this.btnClose.TabIndex = 115;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = global::DVLD.Properties.Resources.Save_32;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(735, 512);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(104, 37);
-            this.btnSave.TabIndex = 114;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 44);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(863, 39);
-            this.lblTitle.TabIndex = 119;
-            this.lblTitle.Text = "Edit Application Type";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // clsPersonCardWithFilter1
-            // 
-            this.clsPersonCardWithFilter1.BackColor = System.Drawing.Color.SkyBlue;
-            this.clsPersonCardWithFilter1.FilterEnabled = true;
-            this.clsPersonCardWithFilter1.Location = new System.Drawing.Point(-2, 0);
-            this.clsPersonCardWithFilter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.clsPersonCardWithFilter1.Name = "clsPersonCardWithFilter1";
-            this.clsPersonCardWithFilter1.ShowAddPerson = true;
-            this.clsPersonCardWithFilter1.Size = new System.Drawing.Size(872, 421);
-            this.clsPersonCardWithFilter1.TabIndex = 2;
             // 
             // pictureBox2
             // 
@@ -310,6 +267,49 @@
             this.pictureBox3.TabIndex = 135;
             this.pictureBox3.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(591, 512);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(114, 37);
+            this.btnClose.TabIndex = 115;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Image = global::DVLD.Properties.Resources.Save_32;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(735, 512);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(104, 37);
+            this.btnSave.TabIndex = 114;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitle.Location = new System.Drawing.Point(12, 44);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(863, 39);
+            this.lblTitle.TabIndex = 119;
+            this.lblTitle.Text = "Edit Application Type";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,8 +320,10 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmAddEditUser";
             this.Text = "frmAddEditUser";
+            this.Load += new System.EventHandler(this.frmAddEditUser_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tpLoginInfo.ResumeLayout(false);

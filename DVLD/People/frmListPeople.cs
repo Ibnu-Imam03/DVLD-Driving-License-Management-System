@@ -14,7 +14,9 @@ namespace DVLD
 
         private void ManagePeople_Load(object sender, EventArgs e)
         {
-            dgvManage_People.DataSource = clsPeople.GetAllPeoeple();
+            DataTable dt = new DataTable();
+            dt = clsPeople.GetAllPeoeple();
+            dgvManage_People.DataSource = dt;
 
             cbFilter.Items.Add("None");
             cbFilter.Items.Add("PersonID");
@@ -29,7 +31,7 @@ namespace DVLD
             cbFilter.Items.Add("Email");
 
             cbFilter.SelectedIndex = 0;
-            lblTotal.Text = clsPeople.GetAllPeoeple().Rows.Count.ToString();
+            lblTotal.Text = dt.Rows.Count.ToString();
 
 
         }

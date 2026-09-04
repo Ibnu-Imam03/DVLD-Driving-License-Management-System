@@ -182,7 +182,60 @@ namespace DVLD_DataAcessLayer
             }
             return UserID;
         }
-        
-        
+
+        public static DataTable GetUsers(string colunm , int Row)
+        {
+            DataTable users = new DataTable();
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = $@"SELECT  Users.UserID, Users.PersonID,
+                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
+                             Users.UserName, Users.IsActive
+                             FROM  Users INNER JOIN
+                                    People ON Users.PersonID = People.PersonID   HAVING Users.{colunm}= {Row}";
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    users.Load(reader);
+                }
+            }catch (Exception ex)
+            {
+
+            }finally { connection.Close(); }
+
+            return users;
+        }
+        public static DataTable GetUsers(string colunm, string Row)
+        {
+            DataTable users = new DataTable();
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = $@"SELECT  Users.UserID, Users.PersonID,
+                            FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL( People.ThirdName,'') +' ' + People.LastName,
+                             Users.UserName, Users.IsActive
+                             FROM  Users INNER JOIN
+                                    People ON Users.PersonID = People.PersonID   HAVING Users.{colunm}= {Row}";
+            SqlCommand command = new SqlCommand(query, connection);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    users.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally { connection.Close(); }
+
+            return users;
+        }
+
+
     }
 }
