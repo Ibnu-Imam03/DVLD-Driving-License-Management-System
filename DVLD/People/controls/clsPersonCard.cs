@@ -52,9 +52,7 @@ namespace DVLD.People.controls
                 {
                     pictureBox1.ImageLocation = _Person.ImagePath;
                 }
-                else
-                {
-                }
+                
             }
             else
             {
@@ -86,6 +84,8 @@ namespace DVLD.People.controls
                 ResetPersonInfo();
                 return;
             }
+            _PersonID = _Person.PersonID;
+
             _FillPersonInfo();
         }
         public void LoadPersonInfo(string NationalNo)
@@ -93,9 +93,12 @@ namespace DVLD.People.controls
             _Person = clsPeople.Find(NationalNo);
             if (_Person == null)
             {
+                _PersonID = -1;
                 ResetPersonInfo();
                 return;
             }
+            _PersonID = _Person.PersonID;
+
             _FillPersonInfo();
         }
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

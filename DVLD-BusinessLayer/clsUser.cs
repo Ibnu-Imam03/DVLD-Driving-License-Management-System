@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DVLD_DataAcessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using DVLD_DataAcessLayer;
+using System.Windows.Forms;
 namespace DVLD_BusinessLayer
 {
     public class clsUser
@@ -42,7 +43,7 @@ namespace DVLD_BusinessLayer
             bool IsActive = false;
             if (clsUserData.GetUserInfoByUsernameAndPassword(username, password, ref UserID, ref PersonID, ref IsActive))
             {
-                return new clsUser(username, password, UserID, PersonID, IsActive);
+                return new clsUser(username, password, PersonID, UserID, IsActive);
             }
             else
             {
@@ -73,9 +74,9 @@ namespace DVLD_BusinessLayer
 
         }
         
-        private  void _UpdateUserInfo()
+        private  bool   _UpdateUserInfo()
         {
-            clsUserData.UpdateUserInfo(UserID, UserName, Password, IsActive);
+            return clsUserData.UpdateUserInfo(this.UserID, UserName, Password, IsActive);
         }
 
         public bool Save()
@@ -86,8 +87,8 @@ namespace DVLD_BusinessLayer
                     {
                         if (_AddNewUser())
                         {
-                            return true;
                             _Mode = enMode.Update;
+                            return true;
                         }
                         else
                         {
@@ -96,8 +97,7 @@ namespace DVLD_BusinessLayer
                     }
                 case enMode.Update:
                     {
-                        _UpdateUserInfo();
-                        return true;
+                        return _UpdateUserInfo();
                     }
             }
             return false;
@@ -115,6 +115,14 @@ namespace DVLD_BusinessLayer
         public static bool DeleteUSer(int UserID)
         {
             return clsUserData.DeleteUserInfo(UserID);
+        }
+        public static bool IsUserExist(string UserName)
+        {
+            return clsUserData.IsUserExisted(UserName);
+        }
+        public static bool IsUserExitedWithPersonID(int PersonID)
+        {
+            return clsUserData.IsUserExitedWithPersonID(PersonID);
         }
     }
 }

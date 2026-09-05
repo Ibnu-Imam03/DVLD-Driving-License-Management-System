@@ -53,7 +53,7 @@ namespace DVLD.People.controls
 
         public int PersonID
         {
-            get { return clsPersonCard1.PersonID; }
+            get { return _PersonID; }
         }
         public clsPeople SelectedPersonInfo
         {
@@ -64,9 +64,13 @@ namespace DVLD.People.controls
             cbFilter.SelectedIndex = 0;
             txtFilter.Text = PersonID.ToString();
             clsPersonCard1.LoadPersonInfo(PersonID);
-
+            _PersonID = clsPersonCard1.PersonID;
         }
 
+        public void FilterFocus()
+        {
+            txtFilter.Focus();
+        }
         private void _FindNow()
         {
             switch (cbFilter.Text)
@@ -79,33 +83,31 @@ namespace DVLD.People.controls
                         }
                         else
                         {
-                            MessageBox.Show(
-                                "Please enter a valid Person ID.",
-                                "Invalid Person ID",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error
-                            );
+                            MessageBox.Show("Please enter a valid Person ID.","Invalid Person ID",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             return;
                         }
+
                         break;
                     }
+
                 case "National No":
                     {
                         clsPersonCard1.LoadPersonInfo(txtFilter.Text);
-                        break;
-                    }
-                default:
-                    {
-                        break;
-                    }
-            }
-                    if(OnPersonSelected != null && FilterEnabled)
-                    {
-                        OnPersonSelected(clsPersonCard1.PersonID);
-                    }
-        }
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        break;
+                    }
+
+                default:
+                    break;
+            }
+
+            _PersonID = clsPersonCard1.PersonID;
+
+            if (OnPersonSelected != null && FilterEnabled)
+            {
+                OnPersonSelected(_PersonID);
+            }
+        }
         private void clsPersonCardWithFilter_Load(object sender, EventArgs e)
         { 
             cbFilter.Items.Add("Person ID");
@@ -123,8 +125,12 @@ namespace DVLD.People.controls
         private void DataBackEvent(object sender, int PersonID)
         {
             cbFilter.SelectedIndex = 0;
+
             txtFilter.Text = PersonID.ToString();
+
             clsPersonCard1.LoadPersonInfo(PersonID);
+
+            _PersonID = clsPersonCard1.PersonID;
         }
 
         private void btnFind_Click_1(object sender, EventArgs e)
@@ -147,7 +153,7 @@ namespace DVLD.People.controls
             }
             else
             {
-                e.Cancel = false;
+                //e.Cancel = false;
                 errorProvider1.SetError(txtFilter, "");
             }
         }

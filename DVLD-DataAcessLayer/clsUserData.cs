@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DVLD_DataAcessLayer
 {
@@ -94,7 +95,11 @@ namespace DVLD_DataAcessLayer
         {
             int rowAffected = -1;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "UPDATE USERS SET UserName = @UserName , Password = @Password , IsActive = @IsActive WHERE UserID = @UserID";
+            string query = @"Update  Users  
+                            set UserName = @UserName,
+                                Password = @Password,
+                                IsActive = @IsActive
+                                where UserID = @UserID";
             SqlCommand command = new SqlCommand (query, connection);
             command.Parameters.AddWithValue("@UserName", UserName);
             command.Parameters.AddWithValue("@Password", Password);
@@ -118,7 +123,6 @@ namespace DVLD_DataAcessLayer
             }
             return (rowAffected > 0);
         }
-
         public static DataTable GetAllUser()
         {
             DataTable Users = new DataTable();
@@ -152,13 +156,13 @@ namespace DVLD_DataAcessLayer
             return Users;
 
         }
-
         public static int AddNewUser(int PersonID, string UserName, string Password,  bool IsActive)
         {
             int UserID = -1;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "INSERT INTO Users  (PersonID,UserName,Password,IsActive) Values " +
-                "(@PersonID,@UserName,@Password,@IsActive) SELECT SCOPE_IDENTITY()";
+            string query = @"INSERT INTO Users (PersonID,UserName,Password,IsActive)
+                             VALUES (@PersonID, @UserName,@Password,@IsActive);
+                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand (query, connection);
 
@@ -170,12 +174,18 @@ namespace DVLD_DataAcessLayer
             {
                 connection.Open();
 
-                UserID = command.ExecuteNonQuery();
+                object result = command.ExecuteScalar();
 
-               
-            }catch (Exception es)
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    UserID = insertedID;
+                }
+                
+
+            }
+            catch (Exception es)
             {
-
+                MessageBox.Show(es.Message);
             }
             finally
             {
@@ -183,7 +193,6 @@ namespace DVLD_DataAcessLayer
             }
             return UserID;
         }
-
         public static DataTable GetUsers(string filter, string value)
         {
             DataTable users = new DataTable();
@@ -275,8 +284,6 @@ namespace DVLD_DataAcessLayer
 
             return users;
         }
-
-
         public static bool DeleteUserInfo(int UserID)
         {
             int rowAffected = 0;
@@ -301,6 +308,65 @@ namespace DVLD_DataAcessLayer
             }
             return rowAffected > 0;
         }
+
+        public static bool IsUserExisted(string UserName)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "SELECT FOUND=1 FROM USER WHERE UserName = @UserName";
+            SqlCommand command = new SqlCommand(query,connection);
+            command.Parameters.AddWithValue("@UserName", UserName);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+        public static bool IsUserExitedWithPersonID(int PersonID)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "SELECT FOUND=1 FROM USER WHERE PersonID = @PersonID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+
+
 
     }
 }

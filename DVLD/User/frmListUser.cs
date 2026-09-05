@@ -41,7 +41,6 @@ namespace DVLD.User
             cbIsActiveFilter.SelectedIndex = 0;
             cbUserFilter.DropDownStyle = ComboBoxStyle.DropDownList;
             cbIsActiveFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-            txtFilter.Visible = false;
 
             lblTotalUser.Text = dgvUserList.Rows.Count.ToString();
         }
@@ -56,7 +55,7 @@ namespace DVLD.User
             }
             else
             {
-                MessageBox.Show("88888888888888888");
+                MessageBox.Show("Please select a user.");
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -67,35 +66,27 @@ namespace DVLD.User
         {
             frmAddEditUser frm = new frmAddEditUser();
             frm.ShowDialog();
+            // Refresh the DataGridView after editing
+            dgvUserList.DataSource = clsUser.GetAllUsers();
+
+            // Update total users
+            lblTotalUser.Text = dgvUserList.Rows.Count.ToString();
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
+        
                 if (dgvUserList.SelectedRows.Count == 0)
                 {
                     MessageBox.Show("Please select a user.");
                     return;
                 }
 
-                int personID = Convert.ToInt32(
-                    dgvUserList.SelectedRows[0].Cells["PersonID"].Value
-                );
+                int UserID = Convert.ToInt32(dgvUserList.SelectedRows[0].Cells["UserID"].Value);
 
-                frmAddEditUser frm = new frmAddEditUser(personID);
-
+                frmAddEditUser frm = new frmAddEditUser(UserID);
                 frm.ShowDialog();
-
-                // Refresh the DataGridView after editing
                 dgvUserList.DataSource = clsUser.GetAllUsers();
-
-                // Update total users
                 lblTotalUser.Text = dgvUserList.Rows.Count.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void cbUserFilter_SelectedIndexChanged(object sender, EventArgs e)

@@ -136,13 +136,13 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 180);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(169, 158);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showDetailsToolStripMenuItem.Image")));
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
@@ -150,7 +150,7 @@
             // 
             this.addNewUSerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addNewUSerToolStripMenuItem.Image")));
             this.addNewUSerToolStripMenuItem.Name = "addNewUSerToolStripMenuItem";
-            this.addNewUSerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewUSerToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.addNewUSerToolStripMenuItem.Text = "Add New User";
             this.addNewUSerToolStripMenuItem.Click += new System.EventHandler(this.addNewUSerToolStripMenuItem_Click);
             // 
@@ -158,7 +158,7 @@
             // 
             this.editToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripMenuItem.Image")));
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@
             // 
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -174,7 +174,7 @@
             // 
             this.changePasswordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changePasswordToolStripMenuItem.Image")));
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
@@ -182,14 +182,14 @@
             // 
             this.sendEmailToolStripMenuItem.Image = global::DVLD.Properties.Resources.Email_32;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // phoneCallToolStripMenuItem
             // 
             this.phoneCallToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("phoneCallToolStripMenuItem.Image")));
             this.phoneCallToolStripMenuItem.Name = "phoneCallToolStripMenuItem";
-            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.phoneCallToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.phoneCallToolStripMenuItem.Text = "Phone Call";
             // 
             // label3
