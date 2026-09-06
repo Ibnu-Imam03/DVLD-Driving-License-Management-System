@@ -160,7 +160,7 @@ namespace DVLD.People
             }
             else
             {
-                MessageBox.Show("Error: Data IS Not Saved", "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Error: Data IS Not Saved", "Error", MessageBoxButtons.OK);
             }
 
         }

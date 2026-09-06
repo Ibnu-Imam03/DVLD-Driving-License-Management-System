@@ -149,6 +149,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplicationTypes.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Countries.cs" />

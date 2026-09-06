@@ -172,6 +172,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\AplicationsTypes\frmEditApplicationsTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\AplicationsTypes\frmEditApplicationsTypes.Designer.cs">
+      <DependentUpon>frmEditApplicationsTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\AplicationsTypes\frmListApplicationsTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\AplicationsTypes\frmListApplicationsTypes.Designer.cs">
+      <DependentUpon>frmListApplicationsTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="clsGlobal.cs" />
     <Compile Include="clsValidations.cs" />
     <Compile Include="DVLDDataSet.Designer.cs">
@@ -270,6 +282,12 @@
     <Compile Include="User\clsUserCard.Designer.cs">
       <DependentUpon>clsUserCard.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\AplicationsTypes\frmEditApplicationsTypes.resx">
+      <DependentUpon>frmEditApplicationsTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\AplicationsTypes\frmListApplicationsTypes.resx">
+      <DependentUpon>frmListApplicationsTypes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>

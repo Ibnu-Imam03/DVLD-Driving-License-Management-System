@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DVLD.Applications.AplicationsTypes;
+using DVLD.Login;
+using DVLD.User;
+using DVLD_BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,9 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DVLD.Login;
-using DVLD.User;
-using DVLD_BusinessLayer;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -48,6 +49,17 @@ namespace DVLD
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListUser frm = new frmListUser();
+            frm.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListApplicationsTypes frm = new frmListApplicationsTypes();
             frm.ShowDialog();
         }
     }
