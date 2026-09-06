@@ -52,6 +52,7 @@ namespace DVLD.User
 
                 frmUserInfo frm = new frmUserInfo(PersonID);
                 frm.ShowDialog();
+                dgvUserList.DataSource= clsUser.GetAllUsers(); 
             }
             else
             {
@@ -134,10 +135,10 @@ namespace DVLD.User
                 return;
             }
 
-            int personID = Convert.ToInt32(
-                dgvUserList.SelectedRows[0].Cells["PersonID"].Value
+            int UserID = Convert.ToInt32(
+                dgvUserList.SelectedRows[0].Cells["UserID"].Value
             );
-            frmChangePassword frm = new frmChangePassword(personID);
+            frmChangePassword frm = new frmChangePassword(UserID);
             frm.ShowDialog();
         }
 
@@ -159,8 +160,19 @@ namespace DVLD.User
             }
             else
             {
-                MessageBox.Show("User was not deleted.","Delete Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("User is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+            // Refresh the DataGridView after editing
+            dgvUserList.DataSource = clsUser.GetAllUsers();
+
+            // Update total users
+            lblTotalUser.Text = dgvUserList.Rows.Count.ToString();
         }
     }
 }

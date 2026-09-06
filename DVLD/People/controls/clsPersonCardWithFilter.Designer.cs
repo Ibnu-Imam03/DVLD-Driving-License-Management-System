@@ -98,7 +98,6 @@
             this.txtFilter.Size = new System.Drawing.Size(148, 22);
             this.txtFilter.TabIndex = 16;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
-            this.txtFilter.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilterValidating);
             // 
             // cbFilter
             // 

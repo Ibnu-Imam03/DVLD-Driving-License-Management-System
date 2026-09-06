@@ -77,15 +77,7 @@ namespace DVLD.People.controls
             {
                 case "Person ID":
                     {
-                        if (int.TryParse(txtFilter.Text, out int personID))
-                        {
-                            clsPersonCard1.LoadPersonInfo(personID);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please enter a valid Person ID.","Invalid Person ID",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                            return;
-                        }
+                        clsPersonCard1.LoadPersonInfo(int.Parse(txtFilter.Text));
 
                         break;
                     }
@@ -144,19 +136,7 @@ namespace DVLD.People.controls
                 _FindNow();
         }
 
-        private void txtFilterValidating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtFilter.Text))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtFilter, "Please enter a value.");
-            }
-            else
-            {
-                //e.Cancel = false;
-                errorProvider1.SetError(txtFilter, "");
-            }
-        }
+       
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -164,7 +144,7 @@ namespace DVLD.People.controls
             {
                 btnFind.PerformClick();
             }
-            if (cbFilter.Text == "Person ID ")
+            if (cbFilter.Text == "PersonID")
             {
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }

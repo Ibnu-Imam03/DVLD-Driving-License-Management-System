@@ -341,7 +341,7 @@ namespace DVLD_DataAcessLayer
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "SELECT FOUND=1 FROM USER WHERE PersonID = @PersonID";
+            string query = "SELECT 1 FROM USERS WHERE PersonID = @PersonID";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@PersonID", PersonID);
 

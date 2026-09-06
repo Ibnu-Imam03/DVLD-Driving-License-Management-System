@@ -30,7 +30,6 @@ namespace DVLD.User
             }
             else
             {
-                e.Cancel= false;
                 errorProvider1.SetError(txtCurrentPassword, "");
             }
         }
@@ -61,7 +60,6 @@ namespace DVLD.User
                      
             else
             {
-                e.Cancel = false;
                 errorProvider1.SetError(txtNewPassword, "");
             }
         }
@@ -103,7 +101,6 @@ namespace DVLD.User
 
             else
             {
-                e.Cancel = false;
                 errorProvider1.SetError(txtCurrentPassword, "");
             }
         }

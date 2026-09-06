@@ -122,6 +122,7 @@
             this.llEditPersonInfo.TabIndex = 117;
             this.llEditPersonInfo.TabStop = true;
             this.llEditPersonInfo.Text = "Edit Person Info";
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditPersonInfo_LinkClicked_1);
             // 
             // lblCountry
             // 

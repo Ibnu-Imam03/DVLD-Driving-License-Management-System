@@ -16,6 +16,7 @@ namespace DVLD_BusinessLayer
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive {  get; set; }
+        public clsPeople PersonInfo;
         enum enMode { AddNew = 0, Update = 1 }
         private enMode _Mode;
         public clsUser()

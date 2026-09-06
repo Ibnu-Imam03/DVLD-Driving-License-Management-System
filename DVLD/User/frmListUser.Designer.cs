@@ -49,6 +49,7 @@
             this.lblTotalUser = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnAddUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -238,12 +239,24 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "Close 64.png");
             // 
+            // btnAddUser
+            // 
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Image = global::DVLD.Properties.Resources.Add_New_User_72;
+            this.btnAddUser.Location = new System.Drawing.Point(628, 137);
+            this.btnAddUser.Name = "btnAddUser";
+            this.btnAddUser.Size = new System.Drawing.Size(88, 69);
+            this.btnAddUser.TabIndex = 102;
+            this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
             // frmListUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(791, 463);
+            this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTotalUser);
             this.Controls.Add(this.label3);
@@ -286,5 +299,6 @@
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddUser;
     }
 }

@@ -211,7 +211,6 @@ namespace DVLD.User
             {
                 MessageBox.Show("Please Select a Person", "Select a Person", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 clsPersonCardWithFilter1.FilterFocus();
-
             }
         }
 

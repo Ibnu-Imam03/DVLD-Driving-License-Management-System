@@ -58,7 +58,6 @@ namespace DVLD.People.controls
             {
                 pictureBox1.Image =  (_Person.Gendor == 0 ? Resources.male : Resources.female_worker);
             }
-            llEditPersonInfo.Visible = false;
         }
         public void ResetPersonInfo()
         {
@@ -85,6 +84,7 @@ namespace DVLD.People.controls
                 return;
             }
             _PersonID = _Person.PersonID;
+            llEditPersonInfo.Visible = true;
 
             _FillPersonInfo();
         }
@@ -101,12 +101,7 @@ namespace DVLD.People.controls
 
             _FillPersonInfo();
         }
-        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmAddEditPerson frm = new frmAddEditPerson(_PersonID);
-            frm.ShowDialog();
-            LoadPersonInfo(_PersonID);
-        }
+        
         private void clsPersonCard_Load(object sender, EventArgs e)
         {
 
@@ -115,6 +110,13 @@ namespace DVLD.People.controls
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void llEditPersonInfo_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddEditPerson frm = new frmAddEditPerson(_PersonID);
+            frm.ShowDialog();
+            LoadPersonInfo(_PersonID);
         }
     }
 }
