@@ -65,6 +65,36 @@ namespace DVLD_DataAcessLayer
             return isFound;
         }
 
+        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
+        {
+            int rowAffected = -1;
+            SqlConnection connection = new SqlConnection (PeopeleDatasettings.ConnectionString);
+            string query = "Update TestTypes SET TestTypeTitle =@TestTypeTitle , TestTypeDescription = @TestTypeDescription , TestTypeFees =@TestTypeFees WHERE TestTypeID = @TestTypeID";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@TestTypeTitle", TestTypeTitle);
+            command.Parameters.AddWithValue("@TestTypeDescription", TestTypeDescription);
+            command.Parameters.AddWithValue("@TestTypeFees", TestTypeFees);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                rowAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return rowAffected > 0;
+
+        }
+
         
     }
 }

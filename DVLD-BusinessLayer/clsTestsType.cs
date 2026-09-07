@@ -45,5 +45,15 @@ namespace DVLD_BusinessLayer
                 return null;
             }
         }
+        private bool _UpdateTestTypes()
+        {
+            return clsTestsTypesData.UpdateTestType(this.TestTypeID,this.TestTitle,this.TestDescribtion,this.fee);
+        }
+
+
+        public bool Save()
+        {
+            return _UpdateTestTypes();
+        }
     }
 }
