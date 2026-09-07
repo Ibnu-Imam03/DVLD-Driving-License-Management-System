@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_BusinessLayer
+namespace DVLD.Applications.Local_Driving_License
 {
-    public partial class Form1 : Form
+    public partial class frmAddUpdateLocalDrivingLicesnseApplication : Form
     {
-        public Form1()
+        public frmAddUpdateLocalDrivingLicesnseApplication()
         {
             InitializeComponent();
         }

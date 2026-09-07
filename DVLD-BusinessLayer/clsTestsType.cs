@@ -1,0 +1,49 @@
+﻿using DVLD_DataAcessLayer;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DVLD_BusinessLayer
+{
+    public class clsTestsType
+    {
+
+        public int TestTypeID {  get; set; }
+        public string TestTitle {  get; set; }
+        public string TestDescribtion { get; set; }
+        public float fee {  get; set; }
+
+        public static DataTable GetAllTestType()
+        {
+            return clsTestsTypesData.GetAllTestTypes();
+        }
+
+        public clsTestsType (int testTypeID, string TestTitle, string TestDescribtion, float fee)
+        {
+            this.TestTypeID = testTypeID;
+            this.TestTitle = TestTitle;
+            this.TestDescribtion = TestDescribtion;
+            this.fee = fee;
+
+        }
+
+        public  clsTestsType FindTestTypeByID(int ID)
+        {
+            string TestTitle = "";
+            string TestDescribtion = "";
+            float fee = -1;
+
+            if (clsTestsTypesData.GetTestTypesByID(ID, ref TestTitle, ref TestDescribtion, ref fee))
+            {
+                return new clsTestsType(ID, TestTitle, TestDescribtion, fee);
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}

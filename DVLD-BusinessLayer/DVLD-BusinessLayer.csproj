@@ -150,15 +150,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsApplicationTypes.cs" />
+    <Compile Include="clsTestsType.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Countries.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="People.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
