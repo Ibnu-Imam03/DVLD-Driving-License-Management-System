@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD_BusinessLayer
 {
@@ -14,14 +15,14 @@ namespace DVLD_BusinessLayer
         public int TestTypeID {  get; set; }
         public string TestTitle {  get; set; }
         public string TestDescribtion { get; set; }
-        public float fee {  get; set; }
+        public decimal  fee {  get; set; }
 
         public static DataTable GetAllTestType()
         {
             return clsTestsTypesData.GetAllTestTypes();
         }
 
-        public clsTestsType (int testTypeID, string TestTitle, string TestDescribtion, float fee)
+        public clsTestsType (int testTypeID, string TestTitle, string TestDescribtion, decimal  fee)
         {
             this.TestTypeID = testTypeID;
             this.TestTitle = TestTitle;
@@ -30,11 +31,11 @@ namespace DVLD_BusinessLayer
 
         }
 
-        public  clsTestsType FindTestTypeByID(int ID)
+        public  static clsTestsType FindTestTypeByID(int ID)
         {
             string TestTitle = "";
             string TestDescribtion = "";
-            float fee = -1;
+            decimal  fee = -1;
 
             if (clsTestsTypesData.GetTestTypesByID(ID, ref TestTitle, ref TestDescribtion, ref fee))
             {

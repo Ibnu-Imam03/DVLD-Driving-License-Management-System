@@ -31,5 +31,13 @@ namespace DVLD.Tests.TestsTypes
             dgvTestTypes.Columns[2].FillWeight = 30;
             dgvTestTypes.Columns[3].FillWeight = 10;
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int TestTypeID = Convert.ToInt32(dgvTestTypes.SelectedRows[0].Cells["TestTypeID"].Value);
+            frmEditTestType frm = new frmEditTestType(TestTypeID);
+            frm.ShowDialog();
+            dgvTestTypes.DataSource = clsTestsType.GetAllTestType();
+        }
     }
 }

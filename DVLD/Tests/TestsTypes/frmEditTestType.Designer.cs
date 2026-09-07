@@ -91,6 +91,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(282, 20);
             this.txtTitle.TabIndex = 141;
+            this.txtTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtTitle_Validating);
             // 
             // label1
             // 
@@ -122,6 +123,7 @@
             this.txtFees.Name = "txtFees";
             this.txtFees.Size = new System.Drawing.Size(282, 20);
             this.txtFees.TabIndex = 142;
+            this.txtFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtFees_Validating);
             // 
             // errorProvider1
             // 
@@ -140,6 +142,7 @@
             this.btnClose.TabIndex = 151;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSave
             // 
@@ -154,6 +157,7 @@
             this.btnSave.TabIndex = 150;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pictureBox8
             // 
@@ -184,6 +188,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(282, 98);
             this.txtDescription.TabIndex = 152;
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // label3
             // 

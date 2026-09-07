@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVLD_DataAcessLayer
 {
@@ -34,38 +35,43 @@ namespace DVLD_DataAcessLayer
             return dt;
         }
 
-        public static bool GetTestTypesByID(int TestTypeID , ref string TestTypeTitle , ref  string TestTypeDescription , ref float TestTypeFees)
+        public static bool GetTestTypesByID(int TestTypeID,ref string TestTypeTitle,ref string TestTypeDescription,ref decimal  TestTypeFees)
         {
             bool isFound = false;
-            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-            string query = "SELECT * From TestTypes WHERE TestTypeID = @TestTypeID";
-            SqlCommand command = new SqlCommand (query, connection);
+
+            SqlConnection connection =new SqlConnection(PeopeleDatasettings.ConnectionString);
+            string query = "SELECT * FROM TestTypes WHERE TestTypeID = @TestTypeID";
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
 
             try
             {
                 connection.Open();
+
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.HasRows)
+                if (reader.Read())
                 {
                     isFound = true;
                     TestTypeTitle = (string)reader["TestTypeTitle"];
                     TestTypeDescription = (string)reader["TestTypeDescription"];
-                    TestTypeFees = (float)reader["TestTypeFees"];
+                    TestTypeFees = (decimal )reader["TestTypeFees"];
+
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 isFound = false;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
                 connection.Close();
             }
+
             return isFound;
         }
-
-        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, float TestTypeFees)
+        public static bool UpdateTestType(int TestTypeID, string TestTypeTitle, string TestTypeDescription, decimal  TestTypeFees)
         {
             int rowAffected = -1;
             SqlConnection connection = new SqlConnection (PeopeleDatasettings.ConnectionString);

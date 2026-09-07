@@ -27,7 +27,7 @@ namespace DVLD
             return regex.IsMatch(Number);
         }
 
-        public static bool ValidateFloat(string Number)
+        public static bool Validatedecimal (string Number)
         {
             var pattern = @"^[0-9]*(?:\.[0-9]*)?$";
 
@@ -37,7 +37,7 @@ namespace DVLD
         }
         public static bool IsNumber(string Number)
         {
-            return (ValidateInteger(Number) || ValidateFloat(Number));
+            return (ValidateInteger(Number) || Validatedecimal (Number));
         }
     }
 }
