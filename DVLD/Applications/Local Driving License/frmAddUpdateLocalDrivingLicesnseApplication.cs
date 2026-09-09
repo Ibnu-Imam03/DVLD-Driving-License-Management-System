@@ -16,5 +16,10 @@ namespace DVLD.Applications.Local_Driving_License
         {
             InitializeComponent();
         }
+
+        private void frmAddUpdateLocalDrivingLicesnseApplication_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

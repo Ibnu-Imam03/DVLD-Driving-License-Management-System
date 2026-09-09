@@ -31,7 +31,11 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tcApplicationInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
+            this.btnApplicationInfoNext = new System.Windows.Forms.Button();
+            this.clsPersonCardWithFilter1 = new DVLD.People.controls.clsPersonCardWithFilter();
             this.tpApplicationInfo = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.lblFees = new System.Windows.Forms.Label();
@@ -42,15 +46,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblLocalDrivingLicebseApplicationID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnApplicationInfoNext = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.clsPersonCardWithFilter1 = new DVLD.People.controls.clsPersonCardWithFilter();
             this.tcApplicationInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpApplicationInfo.SuspendLayout();
@@ -94,6 +94,29 @@
             this.tpPersonalInfo.Text = "Personal Info";
             this.tpPersonalInfo.UseVisualStyleBackColor = true;
             // 
+            // btnApplicationInfoNext
+            // 
+            this.btnApplicationInfoNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApplicationInfoNext.Image = global::DVLD.Properties.Resources.Next_32;
+            this.btnApplicationInfoNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnApplicationInfoNext.Location = new System.Drawing.Point(572, 358);
+            this.btnApplicationInfoNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnApplicationInfoNext.Name = "btnApplicationInfoNext";
+            this.btnApplicationInfoNext.Size = new System.Drawing.Size(126, 37);
+            this.btnApplicationInfoNext.TabIndex = 119;
+            this.btnApplicationInfoNext.Text = "Next";
+            this.btnApplicationInfoNext.UseVisualStyleBackColor = true;
+            // 
+            // clsPersonCardWithFilter1
+            // 
+            this.clsPersonCardWithFilter1.BackColor = System.Drawing.Color.SkyBlue;
+            this.clsPersonCardWithFilter1.FilterEnabled = true;
+            this.clsPersonCardWithFilter1.Location = new System.Drawing.Point(0, 0);
+            this.clsPersonCardWithFilter1.Name = "clsPersonCardWithFilter1";
+            this.clsPersonCardWithFilter1.ShowAddPerson = true;
+            this.clsPersonCardWithFilter1.Size = new System.Drawing.Size(734, 411);
+            this.clsPersonCardWithFilter1.TabIndex = 120;
+            // 
             // tpApplicationInfo
             // 
             this.tpApplicationInfo.Controls.Add(this.pictureBox2);
@@ -114,10 +137,30 @@
             this.tpApplicationInfo.Location = new System.Drawing.Point(4, 22);
             this.tpApplicationInfo.Name = "tpApplicationInfo";
             this.tpApplicationInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.tpApplicationInfo.Size = new System.Drawing.Size(848, 452);
+            this.tpApplicationInfo.Size = new System.Drawing.Size(730, 404);
             this.tpApplicationInfo.TabIndex = 1;
             this.tpApplicationInfo.Text = "Application Info.";
             this.tpApplicationInfo.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::DVLD.Properties.Resources.Number_32;
+            this.pictureBox2.Location = new System.Drawing.Point(229, 58);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 144;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.User_32__2;
+            this.pictureBox1.Location = new System.Drawing.Point(228, 210);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 143;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -227,39 +270,6 @@
             this.label4.TabIndex = 128;
             this.label4.Text = "D.L.Application ID:";
             // 
-            // btnApplicationInfoNext
-            // 
-            this.btnApplicationInfoNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApplicationInfoNext.Image = global::DVLD.Properties.Resources.Next_32;
-            this.btnApplicationInfoNext.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnApplicationInfoNext.Location = new System.Drawing.Point(572, 358);
-            this.btnApplicationInfoNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnApplicationInfoNext.Name = "btnApplicationInfoNext";
-            this.btnApplicationInfoNext.Size = new System.Drawing.Size(126, 37);
-            this.btnApplicationInfoNext.TabIndex = 119;
-            this.btnApplicationInfoNext.Text = "Next";
-            this.btnApplicationInfoNext.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::DVLD.Properties.Resources.Number_32;
-            this.pictureBox2.Location = new System.Drawing.Point(229, 58);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 144;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.User_32__2;
-            this.pictureBox1.Location = new System.Drawing.Point(228, 210);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 143;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DVLD.Properties.Resources.money_32;
@@ -318,16 +328,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // clsPersonCardWithFilter1
-            // 
-            this.clsPersonCardWithFilter1.BackColor = System.Drawing.Color.SkyBlue;
-            this.clsPersonCardWithFilter1.FilterEnabled = true;
-            this.clsPersonCardWithFilter1.Location = new System.Drawing.Point(0, 0);
-            this.clsPersonCardWithFilter1.Name = "clsPersonCardWithFilter1";
-            this.clsPersonCardWithFilter1.ShowAddPerson = true;
-            this.clsPersonCardWithFilter1.Size = new System.Drawing.Size(734, 411);
-            this.clsPersonCardWithFilter1.TabIndex = 120;
-            // 
             // frmAddUpdateLocalDrivingLicesnseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +339,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "frmAddUpdateLocalDrivingLicesnseApplication";
             this.Text = "frmAddUpdateLocalDrivingLicesnseApplication";
+            this.Load += new System.EventHandler(this.frmAddUpdateLocalDrivingLicesnseApplication_Load);
             this.tcApplicationInfo.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
             this.tpApplicationInfo.ResumeLayout(false);

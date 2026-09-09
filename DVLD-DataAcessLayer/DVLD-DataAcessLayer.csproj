@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationTypes.cs" />
+    <Compile Include="clsApplicationData.cs" />
     <Compile Include="clsCountryData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationData.cs" />

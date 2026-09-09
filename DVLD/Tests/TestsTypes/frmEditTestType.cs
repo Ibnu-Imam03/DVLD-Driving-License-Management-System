@@ -105,6 +105,19 @@ namespace DVLD.Tests
                 e.Cancel = false;
                 errorProvider1.SetError(txtFees, null);
             }
+            if (string.IsNullOrEmpty(txtFees.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtFees, "Fees cannot be empty!");
+                return;
+            }
+            else
+            {
+                errorProvider1.SetError(txtFees, null);
+
+            }
+            ;
+
         }
     }
 }

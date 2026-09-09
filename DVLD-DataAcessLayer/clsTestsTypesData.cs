@@ -22,9 +22,13 @@ namespace DVLD_DataAcessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                dt.Load(reader);
+                if (reader.HasRows)
 
-            }catch(Exception ex)
+                {
+                    dt.Load(reader);
+                }
+            }
+            catch(Exception ex)
             {
 
             }
@@ -34,7 +38,6 @@ namespace DVLD_DataAcessLayer
             }
             return dt;
         }
-
         public static bool GetTestTypesByID(int TestTypeID,ref string TestTypeTitle,ref string TestTypeDescription,ref decimal  TestTypeFees)
         {
             bool isFound = false;
@@ -62,7 +65,6 @@ namespace DVLD_DataAcessLayer
             catch (Exception ex)
             {
                 isFound = false;
-                MessageBox.Show(ex.Message);
             }
             finally
             {
