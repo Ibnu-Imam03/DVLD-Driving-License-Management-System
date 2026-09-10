@@ -154,6 +154,7 @@
     <Compile Include="clsCountryData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsLicenseClassDatas.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplicationData.cs" />
     <Compile Include="clsTestsTypesData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="PeopeleDatasettings.cs" />

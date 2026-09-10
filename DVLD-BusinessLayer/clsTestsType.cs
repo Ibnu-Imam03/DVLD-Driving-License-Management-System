@@ -16,6 +16,7 @@ namespace DVLD_BusinessLayer
         public string TestTitle {  get; set; }
         public string TestDescribtion { get; set; }
         public decimal  fee {  get; set; }
+        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 };
 
         public static DataTable GetAllTestType()
         {
