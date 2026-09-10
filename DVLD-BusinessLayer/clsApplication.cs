@@ -16,7 +16,7 @@ namespace DVLD_BusinessLayer
             ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7   
         };
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
-        private enMode _Mode = enMode.AddNew;
+        public enMode _Mode = enMode.AddNew;
         public int ApplicationID {  get; set; }
         public int ApplicationPersonID {  get; set; }
         public clsPeople PersonInfo { get; set; }

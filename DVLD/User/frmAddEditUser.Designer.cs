@@ -317,6 +317,7 @@
             this.lblTitle.TabIndex = 119;
             this.lblTitle.Text = "Edit Application Type";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // errorProvider1
             // 

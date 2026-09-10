@@ -2,7 +2,7 @@
 
 namespace ContactsDataAccessLayer
 {
-    static class clsDataAccessSettings
+    static class PeopeleDatasettings
     {
         public static string ConnectionString = "Server=.;Database=DVLD;User Id=sa;Password=sa123456;";
     }

@@ -12,7 +12,7 @@ namespace ContactsDataAccessLayer
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = "SELECT * FROM Contacts WHERE ContactID = @ContactID";
 
@@ -78,7 +78,7 @@ namespace ContactsDataAccessLayer
             //this function will return the new contact id if succeeded and -1 if not.
             int ContactID = -1;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = @"INSERT INTO Contacts (FirstName, LastName, Email, Phone, Address,DateOfBirth, CountryID,ImagePath)
                              VALUES (@FirstName, @LastName, @Email, @Phone, @Address,@DateOfBirth, @CountryID,@ImagePath);
@@ -132,7 +132,7 @@ namespace ContactsDataAccessLayer
         {
 
             int rowsAffected=0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = @"Update  Contacts  
                             set FirstName = @FirstName, 
@@ -188,7 +188,7 @@ namespace ContactsDataAccessLayer
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = "SELECT * FROM Contacts";
 
@@ -229,7 +229,7 @@ namespace ContactsDataAccessLayer
 
             int rowsAffected=0;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = @"Delete Contacts 
                                 where ContactID = @ContactID";
@@ -264,7 +264,7 @@ namespace ContactsDataAccessLayer
         {
             bool isFound = false;
 
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = "SELECT Found=1 FROM Contacts WHERE ContactID = @ContactID";
 

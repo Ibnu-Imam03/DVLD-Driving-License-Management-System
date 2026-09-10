@@ -218,5 +218,10 @@ namespace DVLD.User
         {
             clsPersonCardWithFilter1.FilterFocus();
         }
+
+        private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

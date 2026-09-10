@@ -52,7 +52,7 @@ namespace DVLD_DataAcessLayer
         {
 
             DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = "select * from ApplicationsList_View order by ApplicationDate desc";
 
@@ -92,7 +92,7 @@ namespace DVLD_DataAcessLayer
             int ApplicationID = -1;
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
             string query = "INSERT INTO Applications (ApplicantPersonID,ApplicationDate,ApplicationTypeID,ApplicationStatus,LastStatusDate,PaidFees,CreatedByUserID)" +
-                " VALUERS (@ApplicantPersonID,@ApplicationDate,@ApplicationTypeID,@ApplicationStatus,@LastStatusDate,@PaidFees,@CreatedByUserID);SELECT SCOPE_IDENTITY();";
+                " VALUES (@ApplicantPersonID,@ApplicationDate,@ApplicationTypeID,@ApplicationStatus,@LastStatusDate,@PaidFees,@CreatedByUserID);SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(@query, connection);
             command.Parameters.AddWithValue("ApplicantPersonID", @ApplicantPersonID);
@@ -289,7 +289,7 @@ namespace DVLD_DataAcessLayer
         {
 
             int rowsAffected = 0;
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
 
             string query = @"Update  Applications  
                             set 

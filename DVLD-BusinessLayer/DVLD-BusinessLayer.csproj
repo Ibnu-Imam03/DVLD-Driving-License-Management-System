@@ -151,7 +151,7 @@
   <ItemGroup>
     <Compile Include="clsApplication.cs" />
     <Compile Include="clsApplicationTypes.cs" />
-    <Compile Include="clsLocalDrivingLicenseApplication.cs" />
+    <Compile Include="clsLicenseClasss.cs" />
     <Compile Include="clsTestsType.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Contact.cs" />
