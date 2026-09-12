@@ -117,5 +117,40 @@ namespace DVLD.Applications.Local_Driving_License
             frmListLocalDrivingLicesnseApplications_Load(null, null);
 
         }
+
+        private void CancelApplicaitonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalDrivingLicenseApplications.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an application first.","Select Application",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            int LocalID = Convert.ToInt32(dgvLocalDrivingLicenseApplications.SelectedRows[0].Cells[0].Value);
+
+            clsLocalDrivingLicenseApplication Local =clsLocalDrivingLicenseApplication.FindByLocalDrivingAppLicenseID(LocalID);
+
+            if (Local == null)
+            {
+                MessageBox.Show("Application was not found.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to cancel this application?","Confirm Cancellation",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+
+            if (Local.Cancel())
+            {
+                MessageBox.Show("Application cancelled successfully.","Cancelled",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                frmListLocalDrivingLicesnseApplications_Load(null, null);
+
+            }
+            else
+            {
+                MessageBox.Show("Application was not cancelled.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
     }
 }

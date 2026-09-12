@@ -100,6 +100,7 @@
             this.drivingLicensesServicesToolStripMenuItem.Name = "drivingLicensesServicesToolStripMenuItem";
             this.drivingLicensesServicesToolStripMenuItem.Size = new System.Drawing.Size(413, 56);
             this.drivingLicensesServicesToolStripMenuItem.Text = "&Driving Licenses Services";
+            this.drivingLicensesServicesToolStripMenuItem.Click += new System.EventHandler(this.drivingLicensesServicesToolStripMenuItem_Click);
             // 
             // newDrivingLicenseToolStripMenuItem
             // 
@@ -117,6 +118,7 @@
             this.localLicenseToolStripMenuItem.Name = "localLicenseToolStripMenuItem";
             this.localLicenseToolStripMenuItem.Size = new System.Drawing.Size(359, 56);
             this.localLicenseToolStripMenuItem.Text = "&Local License";
+            this.localLicenseToolStripMenuItem.Click += new System.EventHandler(this.localLicenseToolStripMenuItem_Click);
             // 
             // internationalLicenseToolStripMenuItem
             // 
