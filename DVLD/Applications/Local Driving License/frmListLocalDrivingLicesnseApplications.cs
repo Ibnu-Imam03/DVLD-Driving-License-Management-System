@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLayer;
+﻿using DVLD_Buisness;
+using DVLD_BusinessLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void frmListLocalDrivingLicesnseApplications_Load(object sender, EventArgs e)
         {
-            //_dgvLocalDrivingLicenseApplications =clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
+            _dgvLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
 
             dgvLocalDrivingLicenseApplications.DataSource =_dgvLocalDrivingLicenseApplications;
             
@@ -46,8 +47,8 @@ namespace DVLD.Applications.Local_Driving_License
                 txtFilterValue.Focus();
             }
 
-            //_dgvLocalDrivingLicenseApplications.DefaultView.RowFilter = "";
-            //lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
+            _dgvLocalDrivingLicenseApplications.DefaultView.RowFilter = "";
+            lblRecordsCount.Text = dgvLocalDrivingLicenseApplications.Rows.Count.ToString();
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -111,11 +112,10 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
-            //frm.ShowDialog();
-            //_dgvLocalDrivingLicenseApplications = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
+            frm.ShowDialog();
+            frmListLocalDrivingLicesnseApplications_Load(null, null);
 
-            //dgvLocalDrivingLicenseApplications.DataSource = _dgvLocalDrivingLicenseApplications;
         }
     }
 }

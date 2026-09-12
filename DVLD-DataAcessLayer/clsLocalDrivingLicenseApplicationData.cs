@@ -162,24 +162,16 @@ namespace DVLD_DataAccess
 
             }
 
-        public static int AddNewLocalDrivingLicenseApplication(
-            int ApplicationID, int LicenseClassID )
+        public static int AddNewLocalDrivingLicenseApplication(int ApplicationID, int LicenseClassID )
         {
-
-            //this function will return the new person id if succeeded and -1 if not.
             int LocalDrivingLicenseApplicationID = -1;
-
             SqlConnection connection = new SqlConnection(PeopeleDatasettings.ConnectionString);
-
-            string query = @"INSERT INTO LocalDrivingLicenseApplications ( 
-                            ApplicationID,LicenseClassID)
-                             VALUES (@ApplicationID,@LicenseClassID);
-                             SELECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO LocalDrivingLicenseApplications ( ApplicationID,LicenseClassID)   VALUES (@ApplicationID,@LicenseClassID);SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("ApplicationID", ApplicationID);
-            command.Parameters.AddWithValue("LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
             
             try
             {

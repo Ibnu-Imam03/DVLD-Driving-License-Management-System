@@ -125,6 +125,7 @@
             this.clsPersonCard1.Name = "clsPersonCard1";
             this.clsPersonCard1.Size = new System.Drawing.Size(713, 277);
             this.clsPersonCard1.TabIndex = 0;
+            this.clsPersonCard1.Load += new System.EventHandler(this.clsPersonCard1_Load);
             // 
             // errorProvider1
             // 

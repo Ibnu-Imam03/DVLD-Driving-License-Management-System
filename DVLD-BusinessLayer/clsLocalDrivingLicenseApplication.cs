@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -142,11 +143,13 @@ namespace DVLD_Buisness
            //Because of inheritance first we call the save method in the base class,
            //it will take care of adding all information to the application table.
             base._Mode = (clsApplication.enMode) Mode;
-          if (!base.Save()) 
-                return false ;
+            if (!base.Save()) 
+            {
+                return false;
+            }
 
 
-          //After we save the main application now we save the sub application.
+            //After we save the main application now we save the sub application.
             switch (Mode)
             {
                 case enMode.AddNew:

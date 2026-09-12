@@ -223,5 +223,10 @@ namespace DVLD.User
         {
 
         }
+
+        private void clsPersonCardWithFilter1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

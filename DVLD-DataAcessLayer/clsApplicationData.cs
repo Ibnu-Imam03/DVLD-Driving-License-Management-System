@@ -248,42 +248,44 @@ namespace DVLD_DataAcessLayer
             //incase the ActiveApplication ID !=-1 return true.
             return (GetActiveApplicationID(PersonID, ApplicationTypeID) != -1);
         }
-        public static int GetActiveApplicationIDForLicenseClass(int PersonID, int ApplicationTypeID, int LicenseClassID)
+        public static int GetActiveApplicationIDForLicenseClass(
+            int PersonID,
+            int ApplicationTypeID,
+            int LicenseClassID)
         {
             int ActiveApplicationID = -1;
-            SqlConnection connection = new SqlConnection((PeopeleDatasettings.ConnectionString));
-            string query = "SELECT ActiveApplictaionID = Applications.ApplicationID FROM Applications JOIN LocalDrivingLicenseApplications ON  " +
-                "Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID  WHERE " +
-                "ApplicantPersonID = @ApplicantPersonID and ApplicationTypeID=@ApplicationTypeID and LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID and ApplicationStatus=1";
 
-            SqlCommand command = new SqlCommand(query, connection);
-
-            command.Parameters.AddWithValue("@ApplicantPersonID", PersonID);
-            command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
-            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-            try
+            using (SqlConnection connection =new SqlConnection(PeopeleDatasettings.ConnectionString))
             {
-                connection.Open();
-                object result = command.ExecuteScalar();
+                string query = @"SELECT Applications.ApplicationID FROM Applications INNER JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID =
+                   LocalDrivingLicenseApplications.ApplicationID WHERE ApplicantPersonID = @ApplicantPersonID AND ApplicationTypeID = @ApplicationTypeID
+                   AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID AND ApplicationStatus = 1";
 
-
-                if (result != null && int.TryParse(result.ToString(), out int AppID))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    ActiveApplicationID = AppID;
+                    command.Parameters.AddWithValue("@ApplicantPersonID", PersonID);
+                    command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                    command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && result != DBNull.Value)
+                        {
+                            ActiveApplicationID = Convert.ToInt32(result);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle/log exception if needed
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                //Console.WriteLine("Error: " + ex.Message);
-                return ActiveApplicationID;
-            }
-            finally
-            {
-                connection.Close();
             }
 
             return ActiveApplicationID;
-
         }
         public static bool UpdateStatus(int ApplicationID, short NewStatus)
         {

@@ -111,6 +111,7 @@
             this.clsPersonCardWithFilter1.ShowAddPerson = true;
             this.clsPersonCardWithFilter1.Size = new System.Drawing.Size(872, 421);
             this.clsPersonCardWithFilter1.TabIndex = 2;
+            this.clsPersonCardWithFilter1.Load += new System.EventHandler(this.clsPersonCardWithFilter1_Load);
             // 
             // tpLoginInfo
             // 
